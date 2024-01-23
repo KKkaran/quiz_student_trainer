@@ -19,16 +19,17 @@ public class Quiz {
 		
 		while(true) {
 			System.out.println("PLEASE SELECT ONE OF THE OPTIONS BELOW: \n1. Trainer \n2. Student\n3. Show Scores \n4. Quit");
-			int option = scanner.nextInt();
-			if(option == 1) {
+			String option = scanner.nextLine();
+			int opt = Integer.parseInt(option);
+			if(opt == 1) {
 				//trainer, create questions
 				createQuestions();
-			}else if(option == 2) {
+			}else if(opt == 2) {
 				//student, show questions
 				showQuizQuestions();
-			}else if(option == 3) {
+			}else if(opt == 3) {
 				showScores();
-			}else if(option == 4) {
+			}else if(opt == 4) {
 				scanner.close();
 				System.out.println("Ending the program.");
 				break;
@@ -43,13 +44,13 @@ public class Quiz {
 		for(int i=0; i<2; i++) {
 			System.out.println("Type in the question for Question# " + (i+1) +"\n");
 			String[] options = new String[4];
-			String questionText = scanner.next();
+			String questionText = scanner.nextLine();
 			for(int j = 0; j<4;j++) {
 				System.out.println("Type in the option# " + (j+1) + " for Question# " + (i+1) + "\n");
-				options[j] = scanner.next();
+				options[j] = scanner.nextLine();
 			}
 			System.out.println("\nType in the answer option for Question# " + (i+1));
-			String answerOption = scanner.next();
+			String answerOption = scanner.nextLine();
 			
 			Question question = new Question(questionText, options, answerOption);
 			questionsList.add(question);
@@ -63,7 +64,7 @@ public class Quiz {
 			return;
 		}
 		System.out.println("What is your name?\n");
-		String name = scanner.next();
+		String name = scanner.nextLine();
 		Student s1 = new Student(name, 0);		
 		
 		for(Question q : questionsList) {
@@ -74,7 +75,7 @@ public class Quiz {
 				System.out.println(i+1 + ". " + options[i]);
 			}
 			System.out.println("What is your answer:\n");
-			String answer = scanner.next();
+			String answer = scanner.nextLine();
 			System.out.println("The asnwer is " + answer + 1 +" AND correct " + q.getAnswer() + 1);
 			if(answer.equals(q.getAnswer())) {
 				s1.setScore(s1.getScore() + 1);
