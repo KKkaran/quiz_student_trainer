@@ -75,9 +75,11 @@ public class Quiz {
 			}
 			System.out.println("What is your answer:\n");
 			String answer = scanner.next();
-			System.out.println("The asnwer is " + answer + " AND correct " + q.getAnswer());
-			if(answer == q.getAnswer()) {
+			System.out.println("The asnwer is " + answer + 1 +" AND correct " + q.getAnswer() + 1);
+			if(answer.equals(q.getAnswer())) {
 				s1.setScore(s1.getScore() + 1);
+			}else {
+				System.out.println("Value different");
 			}
 			System.out.println("#################### " + s1.getScore());
 			
